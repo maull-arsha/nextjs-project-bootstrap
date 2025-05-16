@@ -1,0 +1,35 @@
+// Prisma schema file for MySQL database connection and product model
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id                  Int      @id @default(autoincrement())
+  namaProduk          String
+  volumeMl            Int
+  kategori            String
+  konsentrasi         Float
+  deskripsiProduk     String?
+  biayaMinyakParfum   Float
+  biayaAlkohol        Float
+  biayaBahanTambahan  Float
+  biayaAirSuling      Float
+  biayaBotol          Float
+  biayaPackaging      Float
+  biayaLabel          Float
+  biayaAksesoris      Float
+  biayaTenagaKerja    Float
+  biayaOverhead       Float
+  biayaPengiriman     Float
+  biayaLainnya        Float
+  marginProfit        Float
+  pajak               Float
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
